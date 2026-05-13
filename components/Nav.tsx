@@ -1,0 +1,140 @@
+'use client'
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
+import { useState } from 'react'
+import { LOGO_SRC, COUPE_SRC } from '@/lib/data'
+
+const LINKS = [
+  { href: '/', label: 'ACCUEIL' },
+  { href: '/menu', label: 'MENU' },
+  { href: '/apropos', label: 'À PROPOS' },
+  { href: '/faq', label: 'FAQ' },
+]
+
+export default function Nav() {
+  const pathname = usePathname()
+  const [open, setOpen] = useState(false)
+
+  return (
+    <>
+      <header style={{
+        padding: '1.2rem 3rem',
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        position: 'absolute',
+        top: 0, left: 0, right: 0,
+        zIndex: 100,
+      }}>
+        <Link href="/">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={LOGO_SRC} alt="Cocktail Média" style={{ height: 40, width: 'auto', transition: 'transform .3s ease' }}
+            onMouseEnter={e => (e.currentTarget.style.transform = 'scale(1.05)')}
+            onMouseLeave={e => (e.currentTarget.style.transform = 'scale(1)')} />
+        </Link>
+
+        <nav style={{ display: 'flex', alignItems: 'center', gap: '.3rem' }} className="nav-desktop">
+          {LINKS.map(l => {
+            const active = pathname === l.href || (l.href !== '/' && pathname.startsWith(l.href))
+            return (
+              <Link key={l.href} href={l.href} style={{
+                fontFamily: 'var(--font-bebas, "Bebas Neue"), sans-serif',
+                fontSize: '.95rem',
+                letterSpacing: '.1em',
+                color: active ? 'var(--rouge)' : 'var(--noir)',
+                padding: '.5rem 1rem',
+                borderRadius: 100,
+                transition: 'background .25s ease',
+                position: 'relative',
+              }}
+                onMouseEnter={e => (e.currentTarget.style.background = 'rgba(43,43,43,.06)')}
+                onMouseLeave={e => (e.currentTarget.style.background = 'transparent')}
+              >
+                {l.label}
+                {active && <span style={{ position: 'absolute', bottom: 6, left: '50%', transform: 'translateX(-50%)', width: 4, height: 4, borderRadius: '50%', background: 'var(--rouge)' }} />}
+              </Link>
+            )
+          })}
+          <Link href="/reserver" style={{
+            fontFamily: 'var(--font-bebas, "Bebas Neue"), sans-serif',
+            fontSize: '.95rem',
+            letterSpacing: '.12em',
+            color: 'white',
+            background: 'var(--rouge)',
+            padding: '.55rem 1.6rem',
+            borderRadius: 100,
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: '.4rem',
+            marginLeft: '.5rem',
+            transition: 'all .3s ease',
+          }}
+            onMouseEnter={e => { e.currentTarget.style.background = 'var(--noir)'; e.currentTarget.style.transform = 'translateY(-2px)' }}
+            onMouseLeave={e => { e.currentTarget.style.background = 'var(--rouge)'; e.currentTarget.style.transform = 'translateY(0)' }}
+          >
+            RÉSERVER
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={COUPE_SRC} alt="" style={{ height: 16, filter: 'brightness(0) invert(1)' }} />
+          </Link>
+        </nav>
+
+        <button
+          className="nav-hamburger"
+          aria-label="Menu"
+          onClick={() => setOpen(o => !o)}
+          style={{ display: 'none', flexDirection: 'column', gap: 5, padding: 8, border: 'none', background: 'none', zIndex: 200 }}
+        >
+          {[0, 1, 2].map(i => (
+            <span key={i} style={{
+              display: 'block', width: 24, height: 2,
+              background: 'var(--noir)',
+              borderRadius: 2,
+              transition: 'all .3s ease',
+              transform: open ? (i === 0 ? 'rotate(45deg) translate(5px,5px)' : i === 2 ? 'rotate(-45deg) translate(5px,-5px)' : 'none') : 'none',
+              opacity: open && i === 1 ? 0 : 1,
+            }} />
+          ))}
+        </button>
+      </header>
+
+      {open && (
+        <div style={{
+          position: 'fixed', inset: 0, background: 'var(--creme)', zIndex: 150,
+          display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', gap: '1rem',
+        }}>
+          {LINKS.map(l => (
+            <Link key={l.href} href={l.href} onClick={() => setOpen(false)} style={{
+              fontFamily: 'var(--font-bebas, "Bebas Neue"), sans-serif',
+              fontSize: 'clamp(2rem,6vw,3rem)',
+              letterSpacing: '.08em',
+              color: 'var(--noir)',
+              padding: '.3rem 0',
+              transition: 'color .2s ease',
+            }}
+              onMouseEnter={e => (e.currentTarget.style.color = 'var(--rouge)')}
+              onMouseLeave={e => (e.currentTarget.style.color = 'var(--noir)')}
+            >
+              {l.label}
+            </Link>
+          ))}
+          <Link href="/reserver" onClick={() => setOpen(false)} style={{
+            fontFamily: 'var(--font-bebas, "Bebas Neue"), sans-serif',
+            fontSize: '1.2rem', letterSpacing: '.12em', color: 'white',
+            background: 'var(--rouge)', padding: '.8rem 2.5rem', borderRadius: 100, marginTop: '1.5rem',
+          }}>RÉSERVER</Link>
+          <p style={{ fontFamily: 'var(--font-bebas, "Bebas Neue"), sans-serif', fontSize: '.7rem', letterSpacing: '.3em', color: 'var(--gris-clair)', marginTop: '2rem' }}>
+            ACCESSIBILITÉ · CRÉATIVITÉ · SIMPLICITÉ
+          </p>
+        </div>
+      )}
+
+      <style>{`
+        @media (max-width: 768px) {
+          .nav-desktop { display: none !important; }
+          .nav-hamburger { display: flex !important; }
+          header { padding: 1rem 1.5rem !important; }
+        }
+      `}</style>
+    </>
+  )
+}
