@@ -37,8 +37,8 @@ export const CATEGORIES: Category[] = [
     startingAt: 'À PARTIR DE 100$',
     logoSrc: 'https://static.wixstatic.com/shapes/603d87_30652102cab24c9e83d9405fe124ee69.svg',
     services: [
-      { slug: 'toastvisuel', name: 'Présentation Powerpoint', desc: 'Design professionnel de présentation, mise en page soignée et cohérente', price: '100,00$', wixHref: 'https://www.cocktailmedia.ca/menu/apero/toastvisuel' },
-      { slug: 'plan-signature', name: "Création de plan d'affaires", desc: "Document structuré, visuel et prêt à présenter aux investisseurs", price: '200,00$', wixHref: 'https://www.cocktailmedia.ca/menu/apero/plan-signature' },
+      { slug: 'presentation-powerpoint', name: 'Présentation Powerpoint', desc: 'Design professionnel de présentation, mise en page soignée et cohérente', price: '100,00$', wixHref: 'https://www.cocktailmedia.ca/menu/apero/presentation-powerpoint' },
+      { slug: 'plan-daffaires', name: "Création de plan d'affaires", desc: "Document structuré, visuel et prêt à présenter aux investisseurs", price: '200,00$', wixHref: 'https://www.cocktailmedia.ca/menu/apero/plan-daffaires' },
     ],
     inclus: [
       { title: 'DESIGN SUR MESURE', desc: "Aucun template générique. Chaque document est créé selon ton image de marque." },
@@ -70,8 +70,8 @@ export const CATEGORIES: Category[] = [
     services: [
       { slug: 'creation-logo-personnalise', name: "Création d'un logo personnalisé", desc: "Logo original conçu selon ton image de marque, livré en tous formats", price: '200,00$', wixHref: 'https://www.cocktailmedia.ca/menu/les-roses/creation-logo-personnalise' },
       { slug: 'refonte-identite-visuelle', name: "Refonte d'identité visuelle", desc: "Mise à jour de ton logo et de ton univers graphique existant", price: '150,00$', wixHref: 'https://www.cocktailmedia.ca/menu/les-roses/refonte-identite-visuelle' },
-      { slug: 'creation-supports-imprimes', name: 'Supports imprimables', desc: "Carte d'affaires, affiche, dépliant — conçus pour l'impression", price: '75$ / 1 visuel — 200$ / 4', wixHref: 'https://www.cocktailmedia.ca/menu/les-roses/creation-supports-imprimes' },
-      { slug: 'creation-supports-numeriques', name: 'Supports numériques', desc: "Bannière web, publication réseaux sociaux, signature courriel", price: '75$ / 1 visuel — 200$ / 4', wixHref: 'https://www.cocktailmedia.ca/menu/les-roses/creation-supports-numeriques' },
+      { slug: 'supports-imprimables', name: 'Supports imprimables', desc: "Carte d'affaires, affiche, dépliant — conçus pour l'impression", price: '75$ / 1 visuel — 200$ / 4', wixHref: 'https://www.cocktailmedia.ca/menu/les-roses/supports-imprimables' },
+      { slug: 'supports-numeriques', name: 'Supports numériques', desc: "Bannière web, publication réseaux sociaux, signature courriel", price: '75$ / 1 visuel — 200$ / 4', wixHref: 'https://www.cocktailmedia.ca/menu/les-roses/supports-numeriques' },
     ],
     inclus: [
       { title: 'CONCEPT ORIGINAL', desc: "Chaque création part de zéro — aucun template revendu." },
@@ -100,10 +100,10 @@ export const CATEGORIES: Category[] = [
     startingAt: 'À PARTIR DE 200$',
     logoSrc: 'https://static.wixstatic.com/shapes/603d87_8c1734c96e2d46389e682f8b32278949.svg',
     services: [
-      { slug: 'videoscorporatives', name: 'Vidéo corporatif', desc: "Présentation d'entreprise, témoignage client ou vidéo institutionnelle", price: '300,00$', wixHref: 'https://www.cocktailmedia.ca/menu/les-blancs/videoscorporatives' },
-      { slug: 'couverturedevenements', name: "Couverture d'évènements / 3H", desc: "Captation complète de ton événement sur 3 heures, montage livré", price: '300,00$', wixHref: 'https://www.cocktailmedia.ca/menu/les-blancs/couverturedevenements' },
-      { slug: 'videoimmobiliere', name: 'Vidéos immobiliers', desc: "Visite virtuelle et mise en valeur de propriété à vendre ou louer", price: '200,00$', wixHref: 'https://www.cocktailmedia.ca/menu/les-blancs/videoimmobiliere' },
-      { slug: 'videopardrone', name: 'Vidéos aériens (drone)', desc: "Prises de vue aériennes professionnelles par drone certifié", price: '200,00$', wixHref: 'https://www.cocktailmedia.ca/menu/les-blancs/videopardrone' },
+      { slug: 'video-corporatif', name: 'Vidéo corporatif', desc: "Présentation d'entreprise, témoignage client ou vidéo institutionnelle", price: '300,00$', wixHref: 'https://www.cocktailmedia.ca/menu/les-blancs/video-corporatif' },
+      { slug: 'couverture-evenements', name: "Couverture d'évènements / 3H", desc: "Captation complète de ton événement sur 3 heures, montage livré", price: '300,00$', wixHref: 'https://www.cocktailmedia.ca/menu/les-blancs/couverture-evenements' },
+      { slug: 'videos-immobiliers', name: 'Vidéos immobiliers', desc: "Visite virtuelle et mise en valeur de propriété à vendre ou louer", price: '200,00$', wixHref: 'https://www.cocktailmedia.ca/menu/les-blancs/videos-immobiliers' },
+      { slug: 'videos-aeriens-drone', name: 'Vidéos aériens (drone)', desc: "Prises de vue aériennes professionnelles par drone certifié", price: '200,00$', wixHref: 'https://www.cocktailmedia.ca/menu/les-blancs/videos-aeriens-drone' },
       { slug: 'videos-reseaux-sociaux', name: 'Forfait Short/Reel', desc: "3 courts formats verticaux optimisés Instagram/TikTok/YouTube Shorts", price: '330,00$', wixHref: 'https://www.cocktailmedia.ca/menu/les-blancs/videos-reseaux-sociaux' },
     ],
     inclus: [
@@ -134,11 +134,11 @@ export const CATEGORIES: Category[] = [
     logoSrc: 'https://static.wixstatic.com/shapes/603d87_26a759fec56b434d996293b5902ea3e7.svg',
     services: [
       { slug: 'photo-de-produits', name: 'Photos de produits', desc: "Mise en valeur de tes produits sur fond blanc ou en situation", price: '175,00$', wixHref: 'https://www.cocktailmedia.ca/menu/les-rouges/photo-de-produits' },
-      { slug: 'photos-entreprise', name: 'Photos en actions', desc: "Captation de ton équipe et de ton environnement de travail", price: '250,00$', wixHref: 'https://www.cocktailmedia.ca/menu/les-rouges/photos-entreprise' },
-      { slug: 'couverture-evenements', name: "Couverture d'évènement / 3H", desc: "Photoreportage complet de ton événement sur 3 heures", price: '250,00$', wixHref: 'https://www.cocktailmedia.ca/menu/les-rouges/couverture-evenements' },
-      { slug: 'portrait-corporatif', name: 'Portraits professionnels / 3 personnes', desc: "Portraits d'affaires retouchés, fond au choix, livraison rapide", price: '100,00$', wixHref: 'https://www.cocktailmedia.ca/menu/les-rouges/portrait-corporatif' },
-      { slug: 'retouches-avancees', name: 'Retouches de photos existantes', desc: "Amélioration, correction couleur et retouche de tes photos existantes", price: '50,00$', wixHref: 'https://www.cocktailmedia.ca/menu/les-rouges/retouches-avancees' },
-      { slug: 'photographie-immobiliere', name: 'Photographies immobilières (incluent le drone)', desc: "Photos intérieur/extérieur + prises aériennes pour une propriété", price: '150,00$', wixHref: 'https://www.cocktailmedia.ca/menu/les-rouges/photographie-immobiliere' },
+      { slug: 'photos-en-actions', name: 'Photos en actions', desc: "Captation de ton équipe et de ton environnement de travail", price: '250,00$', wixHref: 'https://www.cocktailmedia.ca/menu/les-rouges/photos-en-actions' },
+      { slug: 'couverture-evenement', name: "Couverture d'évènement / 3H", desc: "Photoreportage complet de ton événement sur 3 heures", price: '250,00$', wixHref: 'https://www.cocktailmedia.ca/menu/les-rouges/couverture-evenement' },
+      { slug: 'portraits-professionnels', name: 'Portraits professionnels / 3 personnes', desc: "Portraits d'affaires retouchés, fond au choix, livraison rapide", price: '100,00$', wixHref: 'https://www.cocktailmedia.ca/menu/les-rouges/portraits-professionnels' },
+      { slug: 'retouches-photos', name: 'Retouches de photos existantes', desc: "Amélioration, correction couleur et retouche de tes photos existantes", price: '50,00$', wixHref: 'https://www.cocktailmedia.ca/menu/les-rouges/retouches-photos' },
+      { slug: 'photographies-immobilieres', name: 'Photographies immobilières (incluent le drone)', desc: "Photos intérieur/extérieur + prises aériennes pour une propriété", price: '150,00$', wixHref: 'https://www.cocktailmedia.ca/menu/les-rouges/photographies-immobilieres' },
       { slug: 'photographie-par-drone', name: 'Photographies par drone', desc: "Prises de vue aériennes haute résolution par drone certifié", price: '200,00$', wixHref: 'https://www.cocktailmedia.ca/menu/les-rouges/photographie-par-drone' },
     ],
     inclus: [
@@ -169,7 +169,7 @@ export const CATEGORIES: Category[] = [
     logoSrc: 'https://static.wixstatic.com/shapes/603d87_2841476480cb44b48a46eb7ffe2c32bc.svg',
     services: [
       { slug: 'creation-site-web-simple', name: 'Création de site web simple', desc: "Site vitrine jusqu'à 5 pages, responsive, optimisé SEO de base", price: '500,00$', wixHref: 'https://www.cocktailmedia.ca/menu/les-digestifs/creation-site-web-simple' },
-      { slug: 'boutique-en-ligne-simple', name: "Création d'une boutique en ligne", desc: "Boutique e-commerce jusqu'à 20 produits, paiement en ligne intégré", price: '1 000,00$', wixHref: 'https://www.cocktailmedia.ca/menu/les-digestifs/boutique-en-ligne-simple' },
+      { slug: 'boutique-en-ligne', name: "Création d'une boutique en ligne", desc: "Boutique e-commerce jusqu'à 20 produits, paiement en ligne intégré", price: '1 000,00$', wixHref: 'https://www.cocktailmedia.ca/menu/les-digestifs/boutique-en-ligne' },
       { slug: 'refonte-site-web-existant', name: 'Refonte de site web existant', desc: "Rafraîchissement visuel et technique de ton site actuel", price: '150,00$', wixHref: 'https://www.cocktailmedia.ca/menu/les-digestifs/refonte-site-web-existant' },
     ],
     inclus: [

@@ -7,15 +7,17 @@ export function generateStaticParams() {
   return cat.services.map(s => ({ service: s.slug }))
 }
 
-export function generateMetadata({ params }: { params: { service: string } }) {
+export async function generateMetadata({ params }: { params: Promise<{ service: string }> }) {
+  const { service } = await params
   const cat = CATEGORIES.find(c => c.slug === 'les-roses')!
-  const svc = cat.services.find(s => s.slug === params.service)
+  const svc = cat.services.find(s => s.slug === service)
   if (!svc) return {}
   return { title: `${svc.name} | Cocktail Média`, description: svc.desc }
 }
 
-export default function LesRosesServicePage({ params }: { params: { service: string } }) {
+export default async function LesRosesServicePage({ params }: { params: Promise<{ service: string }> }) {
+  const { service } = await params
   const cat = CATEGORIES.find(c => c.slug === 'les-roses')!
-  if (!cat.services.find(s => s.slug === params.service)) notFound()
-  return <ServicePage catSlug="les-roses" serviceSlug={params.service} />
+  if (!cat.services.find(s => s.slug === service)) notFound()
+  return <ServicePage catSlug="les-roses" serviceSlug={service} />
 }
