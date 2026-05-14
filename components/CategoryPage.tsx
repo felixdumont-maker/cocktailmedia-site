@@ -1,6 +1,8 @@
 'use client'
 import Link from 'next/link'
 import { CATEGORIES } from '@/lib/data'
+import Btn from '@/components/ui/Btn'
+import SectionHeader from '@/components/ui/SectionHeader'
 
 export default function CategoryPage({ slug }: { slug: string }) {
   const cat = CATEGORIES.find(c => c.slug === slug)!
@@ -26,7 +28,7 @@ export default function CategoryPage({ slug }: { slug: string }) {
           letterSpacing: '.04em', userSelect: 'none', lineHeight: 1,
         }}>{cat.bgWord2}</span>
 
-        <div style={{ maxWidth: 1100, margin: '0 auto', width: '100%', position: 'relative', zIndex: 2 }}>
+        <div className="container" style={{ position: 'relative', zIndex: 2 }}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src={cat.logoSrc} alt="" style={{ height: 56, marginBottom: '1.5rem', display: 'block', filter: 'brightness(0) invert(1)', opacity: .7 }} />
           <p style={{ fontFamily: 'var(--font-bebas, "Bebas Neue"), sans-serif', fontSize: '.75rem', letterSpacing: '.4em', color: cat.color, marginBottom: '.8rem' }}>
@@ -41,25 +43,25 @@ export default function CategoryPage({ slug }: { slug: string }) {
 
       {/* ── SERVICES ─────────────────────────────────────────────────────── */}
       <section style={{ background: 'var(--fond)', padding: '5rem 2rem' }}>
-        <div style={{ maxWidth: 1100, margin: '0 auto' }}>
-          <div style={{ marginBottom: '3rem' }}>
-            <p style={{ fontFamily: 'var(--font-bebas, "Bebas Neue"), sans-serif', fontSize: '.75rem', letterSpacing: '.4em', color: cat.color, marginBottom: '.6rem' }}>NOS SERVICES</p>
-            <h2 style={{ fontFamily: 'var(--font-bebas, "Bebas Neue"), sans-serif', fontSize: 'clamp(1.8rem,4vw,2.5rem)', color: 'var(--noir)', letterSpacing: '.03em' }}>
-              CE QU&apos;ON OFFRE
-            </h2>
-          </div>
+        <div className="container">
+          <SectionHeader
+            eyebrow="NOS SERVICES"
+            heading="CE QU'ON OFFRE"
+            align="left"
+            size="md"
+            eyebrowColor={cat.color}
+          />
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.5rem' }}>
             {cat.services.map(svc => (
-              <Link key={svc.slug} href={`/menu/${cat.slug}/${svc.slug}`} style={{
+              <Link key={svc.slug} href={`/menu/${cat.slug}/${svc.slug}`} className="svc-card" style={{
                 display: 'flex', flexDirection: 'column',
                 padding: '2rem', background: 'white', borderRadius: 16,
                 border: '1px solid var(--ligne)',
                 transition: 'all .3s ease', textDecoration: 'none',
-              }}
-                onMouseEnter={e => { e.currentTarget.style.borderColor = cat.color; e.currentTarget.style.transform = 'translateY(-4px)'; e.currentTarget.style.boxShadow = `0 12px 32px ${cat.colorPale}` }}
-                onMouseLeave={e => { e.currentTarget.style.borderColor = 'var(--ligne)'; e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = 'none' }}
-              >
+                ['--cat-color' as string]: cat.color,
+                ['--cat-pale' as string]: cat.colorPale,
+              }}>
                 <div style={{ flex: 1 }}>
                   <h3 style={{ fontSize: '1rem', fontWeight: 700, color: 'var(--noir)', marginBottom: '.6rem', lineHeight: 1.3 }}>{svc.name}</h3>
                   <p style={{ fontSize: '.82rem', color: 'var(--gris)', lineHeight: 1.6, marginBottom: '1.5rem' }}>{svc.desc}</p>
@@ -76,16 +78,17 @@ export default function CategoryPage({ slug }: { slug: string }) {
 
       {/* ── CE QUI EST INCLUS ─────────────────────────────────────────────── */}
       <section style={{ background: 'var(--noir)', padding: '5rem 2rem' }}>
-        <div style={{ maxWidth: 1100, margin: '0 auto' }}>
-          <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
-            <p style={{ fontFamily: 'var(--font-bebas, "Bebas Neue"), sans-serif', fontSize: '.75rem', letterSpacing: '.4em', color: cat.color, marginBottom: '.6rem' }}>TOUJOURS COMPRIS</p>
-            <h2 style={{ fontFamily: 'var(--font-bebas, "Bebas Neue"), sans-serif', fontSize: 'clamp(1.8rem,4vw,2.5rem)', color: 'var(--creme)', letterSpacing: '.03em' }}>
-              CE QUI EST INCLUS
-            </h2>
-          </div>
+        <div className="container">
+          <SectionHeader
+            eyebrow="TOUJOURS COMPRIS"
+            heading="CE QUI EST INCLUS"
+            theme="dark"
+            size="md"
+            eyebrowColor={cat.color}
+          />
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '1.2rem' }}>
             {cat.inclus.map(item => (
-              <div key={item.title} style={{ padding: '1.5rem', border: '1px solid rgba(255,255,255,.06)', borderRadius: 12 }}>
+              <div key={item.title} className="card-dark" style={{ padding: '1.5rem' }}>
                 <p style={{ fontFamily: 'var(--font-bebas, "Bebas Neue"), sans-serif', fontSize: '.75rem', letterSpacing: '.25em', color: cat.color, marginBottom: '.6rem' }}>✓ {item.title}</p>
                 <p style={{ fontSize: '.82rem', color: 'var(--gris)', lineHeight: 1.6 }}>{item.desc}</p>
               </div>
@@ -97,16 +100,16 @@ export default function CategoryPage({ slug }: { slug: string }) {
       {/* ── FAQ ──────────────────────────────────────────────────────────── */}
       {cat.faqs.length > 0 && (
         <section style={{ background: 'var(--creme)', padding: '5rem 2rem' }}>
-          <div style={{ maxWidth: 800, margin: '0 auto' }}>
-            <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
-              <p style={{ fontFamily: 'var(--font-bebas, "Bebas Neue"), sans-serif', fontSize: '.75rem', letterSpacing: '.4em', color: cat.color, marginBottom: '.6rem' }}>QUESTIONS FRÉQUENTES</p>
-              <h2 style={{ fontFamily: 'var(--font-bebas, "Bebas Neue"), sans-serif', fontSize: 'clamp(1.8rem,4vw,2.5rem)', color: 'var(--noir)', letterSpacing: '.03em' }}>
-                ON RÉPOND
-              </h2>
-            </div>
+          <div className="container-sm">
+            <SectionHeader
+              eyebrow="QUESTIONS FRÉQUENTES"
+              heading="ON RÉPOND"
+              size="md"
+              eyebrowColor={cat.color}
+            />
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
               {cat.faqs.map(faq => (
-                <div key={faq.q} style={{ padding: '1.5rem', background: 'white', borderRadius: 12, border: '1px solid var(--ligne)' }}>
+                <div key={faq.q} className="faq-item" style={{ cursor: 'default' }}>
                   <p style={{ fontWeight: 700, color: 'var(--noir)', fontSize: '.9rem', marginBottom: '.6rem' }}>{faq.q}</p>
                   <p style={{ fontSize: '.85rem', color: 'var(--gris)', lineHeight: 1.7 }}>{faq.a}</p>
                 </div>
@@ -126,33 +129,19 @@ export default function CategoryPage({ slug }: { slug: string }) {
             Choisis ton service et réserve un créneau. C&apos;est tout.
           </p>
           <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
-            <Link href="/reserver" style={{
-              fontFamily: 'var(--font-bebas, "Bebas Neue"), sans-serif',
-              fontSize: '1.05rem', letterSpacing: '.14em',
-              color: cat.color, background: 'white',
-              padding: '.85rem 2.8rem', borderRadius: 100,
-              display: 'inline-block', transition: 'all .3s ease',
-            }}
-              onMouseEnter={e => { e.currentTarget.style.background = 'var(--noir)'; e.currentTarget.style.color = 'white' }}
-              onMouseLeave={e => { e.currentTarget.style.background = 'white'; e.currentTarget.style.color = cat.color }}
-            >
-              RÉSERVER
-            </Link>
-            <Link href="/menu" style={{
-              fontFamily: 'var(--font-bebas, "Bebas Neue"), sans-serif',
-              fontSize: '1.05rem', letterSpacing: '.14em',
-              color: 'white', border: '2px solid rgba(255,255,255,.5)',
-              padding: '.85rem 2.8rem', borderRadius: 100,
-              display: 'inline-block', transition: 'all .3s ease',
-            }}
-              onMouseEnter={e => { e.currentTarget.style.borderColor = 'white' }}
-              onMouseLeave={e => { e.currentTarget.style.borderColor = 'rgba(255,255,255,.5)' }}
-            >
-              ← RETOUR AU MENU
-            </Link>
+            <Btn href="/reserver" variant="white-on-rouge" size="lg">RÉSERVER</Btn>
+            <Btn href="/menu" variant="outline-white" size="lg">← RETOUR AU MENU</Btn>
           </div>
         </div>
       </section>
+
+      <style>{`
+        .svc-card:hover {
+          border-color: var(--cat-color) !important;
+          transform: translateY(-4px);
+          box-shadow: 0 12px 32px var(--cat-pale);
+        }
+      `}</style>
     </>
   )
 }

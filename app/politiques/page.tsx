@@ -1,8 +1,9 @@
 import Link from 'next/link'
+import Btn from '@/components/ui/Btn'
 
 export const metadata = {
   title: 'Politiques | Cocktail Média',
-  description: 'Politiques de délais, d\'annulation, de remboursement et de confidentialité de Cocktail Média.',
+  description: "Politiques de délais, d'annulation, de remboursement et de confidentialité de Cocktail Média.",
 }
 
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
@@ -27,8 +28,8 @@ export default function PolitiquesPage() {
         display: 'flex', flexDirection: 'column', justifyContent: 'flex-end',
         padding: '10rem 2rem 4rem', position: 'relative', overflow: 'hidden',
       }}>
-        <div style={{ maxWidth: 1100, margin: '0 auto', width: '100%' }}>
-          <p style={{ fontFamily: 'var(--font-bebas, "Bebas Neue"), sans-serif', fontSize: '.8rem', letterSpacing: '.4em', color: 'var(--rouge)', marginBottom: '.8rem' }}>TRANSPARENT, COMME TOUT LE RESTE</p>
+        <div className="container">
+          <p className="eyebrow">TRANSPARENT, COMME TOUT LE RESTE</p>
           <h1 style={{ fontFamily: 'var(--font-bebas, "Bebas Neue"), sans-serif', fontSize: 'clamp(3rem,8vw,5.5rem)', color: 'var(--creme)', letterSpacing: '.04em', lineHeight: 1, marginBottom: '1rem' }}>
             POLITIQUES
           </h1>
@@ -37,7 +38,7 @@ export default function PolitiquesPage() {
 
       {/* ── CONTENU ──────────────────────────────────────────────────────── */}
       <section style={{ background: 'var(--fond)', padding: '5rem 2rem' }}>
-        <div style={{ maxWidth: 800, margin: '0 auto' }}>
+        <div className="container-sm">
 
           <Section title="DÉLAIS DE LIVRAISON">
             <p>Chaque service a un délai standard affiché sur le menu. Ces délais comptent en <strong style={{ color: 'var(--noir)' }}>jours ouvrables</strong> (lundi au vendredi, excluant les fériés québécois) à partir de la confirmation de la commande et de la réception de tous les éléments nécessaires.</p>
@@ -82,17 +83,7 @@ export default function PolitiquesPage() {
 
           <div style={{ paddingTop: '2rem', borderTop: '1px solid var(--ligne)', display: 'flex', gap: '1rem', flexWrap: 'wrap', alignItems: 'center' }}>
             <p style={{ fontSize: '.8rem', color: 'var(--gris)', flex: 1 }}>Ces politiques ont été mises à jour en mai 2025. Pour toute question, contacte-nous.</p>
-            <Link href="/reserver" className="btn-pol-reserve" style={{
-              fontFamily: 'var(--font-bebas, "Bebas Neue"), sans-serif',
-              fontSize: '.85rem', letterSpacing: '.14em',
-              color: 'white', background: 'var(--rouge)',
-              padding: '.65rem 1.8rem', borderRadius: 100,
-              display: 'inline-block', whiteSpace: 'nowrap',
-              transition: 'all .3s ease',
-            }}>
-              RÉSERVER →
-            </Link>
-            <style>{`.btn-pol-reserve:hover { background: var(--noir) !important; }`}</style>
+            <Btn href="/reserver" variant="primary" size="sm">RÉSERVER →</Btn>
           </div>
         </div>
       </section>
