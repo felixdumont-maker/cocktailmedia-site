@@ -99,7 +99,9 @@ export default function Home() {
                 ['--cat-color' as string]: cat.color,
                 ['--cat-pale' as string]: cat.colorPale,
               }}>
-                <p style={{ fontFamily: 'var(--font-bebas, "Bebas Neue"), sans-serif', fontSize: '.65rem', letterSpacing: '.35em', color: cat.color, marginBottom: '.8rem' }}>{cat.num}</p>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={cat.logoLocal} alt="" style={{ height: 44, marginBottom: '1.2rem', display: 'block', opacity: .55 }} />
+                <p style={{ fontFamily: 'var(--font-bebas, "Bebas Neue"), sans-serif', fontSize: '.65rem', letterSpacing: '.35em', color: cat.color, marginBottom: '.5rem' }}>{cat.num}</p>
                 <h3 style={{ fontFamily: 'var(--font-bebas, "Bebas Neue"), sans-serif', fontSize: '1.5rem', letterSpacing: '.06em', color: 'var(--creme)', marginBottom: '.5rem', lineHeight: 1.1 }}>{cat.name}</h3>
                 <p style={{ fontSize: '.75rem', color: 'var(--gris)', lineHeight: 1.5, marginBottom: '1.2rem' }}>{cat.type}</p>
                 <p style={{ fontFamily: 'var(--font-bebas, "Bebas Neue"), sans-serif', fontSize: '.75rem', letterSpacing: '.15em', color: cat.color }}>{cat.startingAt} →</p>

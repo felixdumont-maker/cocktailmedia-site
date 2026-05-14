@@ -18,6 +18,7 @@ export type Category = {
   tagline: string
   startingAt: string
   logoSrc: string
+  logoLocal: string
   services: Service[]
   inclus: { title: string; desc: string }[]
   faqs: { q: string; a: string }[]
@@ -36,6 +37,7 @@ export const CATEGORIES: Category[] = [
     tagline: "Des documents visuels qui font bonne impression. <strong>Présentations Powerpoint et plans d'affaires</strong> — clairs, pros, prêts à livrer.",
     startingAt: 'À PARTIR DE 100$',
     logoSrc: 'https://static.wixstatic.com/shapes/603d87_30652102cab24c9e83d9405fe124ee69.svg',
+    logoLocal: '/logos/apero.svg',
     services: [
       { slug: 'presentation-powerpoint', name: 'Présentation Powerpoint', desc: 'Design professionnel de présentation, mise en page soignée et cohérente', price: '100,00$', wixHref: 'https://www.cocktailmedia.ca/menu/apero/presentation-powerpoint' },
       { slug: 'plan-daffaires', name: "Création de plan d'affaires", desc: "Document structuré, visuel et prêt à présenter aux investisseurs", price: '200,00$', wixHref: 'https://www.cocktailmedia.ca/menu/apero/plan-daffaires' },
@@ -67,6 +69,7 @@ export const CATEGORIES: Category[] = [
     tagline: "Une identité visuelle qui te ressemble et qui se démarque. <strong>Logo, supports imprimés, supports numériques, refonte</strong> — tout est là.",
     startingAt: 'À PARTIR DE 75$',
     logoSrc: 'https://static.wixstatic.com/shapes/603d87_a748d18eac8848e2b12f2731acfeaeb1.svg',
+    logoLocal: '/logos/les-roses.svg',
     services: [
       { slug: 'creation-logo-personnalise', name: "Création d'un logo personnalisé", desc: "Logo original conçu selon ton image de marque, livré en tous formats", price: '200,00$', wixHref: 'https://www.cocktailmedia.ca/menu/les-roses/creation-logo-personnalise' },
       { slug: 'refonte-identite-visuelle', name: "Refonte d'identité visuelle", desc: "Mise à jour de ton logo et de ton univers graphique existant", price: '150,00$', wixHref: 'https://www.cocktailmedia.ca/menu/les-roses/refonte-identite-visuelle' },
@@ -99,6 +102,7 @@ export const CATEGORIES: Category[] = [
     tagline: "Des vidéos professionnelles qui captivent et convertissent. <strong>Corporate, événements, immobilier, drone, réseaux sociaux</strong> — on tourne.",
     startingAt: 'À PARTIR DE 200$',
     logoSrc: 'https://static.wixstatic.com/shapes/603d87_8c1734c96e2d46389e682f8b32278949.svg',
+    logoLocal: '/logos/les-blancs.svg',
     services: [
       { slug: 'video-corporatif', name: 'Vidéo corporatif', desc: "Présentation d'entreprise, témoignage client ou vidéo institutionnelle", price: '300,00$', wixHref: 'https://www.cocktailmedia.ca/menu/les-blancs/video-corporatif' },
       { slug: 'couverture-evenements', name: "Couverture d'évènements / 3H", desc: "Captation complète de ton événement sur 3 heures, montage livré", price: '300,00$', wixHref: 'https://www.cocktailmedia.ca/menu/les-blancs/couverture-evenements' },
@@ -132,6 +136,7 @@ export const CATEGORIES: Category[] = [
     tagline: "Des photos professionnelles qui mettent en valeur ton entreprise. <strong>Produits, portraits, évènements, immobilier, drone</strong> — on couvre tout.",
     startingAt: 'À PARTIR DE 50$',
     logoSrc: 'https://static.wixstatic.com/shapes/603d87_26a759fec56b434d996293b5902ea3e7.svg',
+    logoLocal: '/logos/les-rouges.svg',
     services: [
       { slug: 'photo-de-produits', name: 'Photos de produits', desc: "Mise en valeur de tes produits sur fond blanc ou en situation", price: '175,00$', wixHref: 'https://www.cocktailmedia.ca/menu/les-rouges/photo-de-produits' },
       { slug: 'photos-en-actions', name: 'Photos en actions', desc: "Captation de ton équipe et de ton environnement de travail", price: '250,00$', wixHref: 'https://www.cocktailmedia.ca/menu/les-rouges/photos-en-actions' },
@@ -167,6 +172,7 @@ export const CATEGORIES: Category[] = [
     tagline: "Un site web simple, efficace et professionnel pour ta PME. <strong>Site vitrine, boutique en ligne, refonte</strong> — clé en main.",
     startingAt: 'À PARTIR DE 150$',
     logoSrc: 'https://static.wixstatic.com/shapes/603d87_2841476480cb44b48a46eb7ffe2c32bc.svg',
+    logoLocal: '/logos/les-digestifs.svg',
     services: [
       { slug: 'creation-site-web-simple', name: 'Création de site web simple', desc: "Site vitrine jusqu'à 5 pages, responsive, optimisé SEO de base", price: '500,00$', wixHref: 'https://www.cocktailmedia.ca/menu/les-digestifs/creation-site-web-simple' },
       { slug: 'boutique-en-ligne', name: "Création d'une boutique en ligne", desc: "Boutique e-commerce jusqu'à 20 produits, paiement en ligne intégré", price: '1 000,00$', wixHref: 'https://www.cocktailmedia.ca/menu/les-digestifs/boutique-en-ligne' },
