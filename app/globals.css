@@ -330,8 +330,30 @@ button { cursor: pointer; font-family: inherit; }
 
 /* ── Animations ──────────────────────────────────────────────────────── */
 
-@keyframes bgWordIn  { from { opacity: 0; } to { opacity: .13; } }
-@keyframes punchIn   { 0% { opacity:0; transform:scale(.9) translateY(25px); } 60% { opacity:1; transform:scale(1.015) translateY(-4px); } 100% { opacity:1; transform:scale(1) translateY(0); } }
-@keyframes fadeUp    { from { opacity:0; transform:translateY(18px); } to { opacity:1; transform:translateY(0); } }
+@keyframes bgWordIn  { from { opacity: 0; } to { opacity: .18; } }
+@keyframes punchIn   { 0% { opacity:0; transform:scale(.88) translateY(30px); } 55% { opacity:1; transform:scale(1.02) translateY(-5px); } 100% { opacity:1; transform:scale(1) translateY(0); } }
+@keyframes fadeUp    { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
 @keyframes fadeIn    { from { opacity:0; } to { opacity:1; } }
 @keyframes bounce    { 0%,100% { transform:translateY(0); } 50% { transform:translateY(4px); } }
+@keyframes slideInRight { from { opacity:0; transform:translateX(24px); } to { opacity:1; transform:translateX(0); } }
+
+/* ── Scroll reveal ───────────────────────────────────────────────────── */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity .6s var(--ease-out), transform .6s var(--ease-out);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-delay-1 { transition-delay: .1s; }
+.reveal-delay-2 { transition-delay: .2s; }
+.reveal-delay-3 { transition-delay: .3s; }
+
+/* ── Hero stat bar ───────────────────────────────────────────────────── */
+
+@media (max-width: 600px) {
+  .stat-bar > div { min-width: 120px !important; padding: 1.2rem !important; }
+}

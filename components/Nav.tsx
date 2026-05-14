@@ -1,7 +1,7 @@
 'use client'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { LOGO_SRC, COUPE_SRC } from '@/lib/data'
 import Btn from '@/components/ui/Btn'
 
@@ -15,21 +15,32 @@ const LINKS = [
 export default function Nav() {
   const pathname = usePathname()
   const [open, setOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+
+  useEffect(() => {
+    const handler = () => setScrolled(window.scrollY > 60)
+    window.addEventListener('scroll', handler, { passive: true })
+    return () => window.removeEventListener('scroll', handler)
+  }, [])
 
   return (
     <>
       <header style={{
-        padding: '1.2rem 3rem',
+        padding: '1rem 3rem',
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
-        position: 'absolute',
+        position: 'fixed',
         top: 0, left: 0, right: 0,
         zIndex: 100,
+        transition: 'background 350ms ease, backdrop-filter 350ms ease, box-shadow 350ms ease',
+        background: scrolled ? 'rgba(250,249,246,.92)' : 'transparent',
+        backdropFilter: scrolled ? 'blur(12px)' : 'none',
+        boxShadow: scrolled ? '0 1px 0 rgba(43,43,43,.08)' : 'none',
       }}>
         <Link href="/">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={LOGO_SRC} alt="Cocktail Média" style={{ height: 40, width: 'auto', transition: 'transform .3s ease' }}
+          <img src={LOGO_SRC} alt="Cocktail Média" style={{ height: 36, width: 'auto', transition: 'transform .3s ease' }}
             onMouseEnter={e => (e.currentTarget.style.transform = 'scale(1.05)')}
             onMouseLeave={e => (e.currentTarget.style.transform = 'scale(1)')} />
         </Link>
@@ -72,28 +83,36 @@ export default function Nav() {
 
       {open && (
         <div style={{
-          position: 'fixed', inset: 0, background: 'var(--creme)', zIndex: 150,
-          display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', gap: '1rem',
+          position: 'fixed', inset: 0, background: 'var(--noir)', zIndex: 150,
+          display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', gap: '1.2rem',
         }}>
-          {LINKS.map(l => (
+          <button onClick={() => setOpen(false)} style={{
+            position: 'absolute', top: '1.5rem', right: '1.5rem',
+            background: 'none', border: 'none', color: 'var(--gris)', cursor: 'pointer',
+            fontSize: '1.5rem', lineHeight: 1, padding: '.5rem',
+          }}>✕</button>
+
+          {LINKS.map((l, i) => (
             <Link key={l.href} href={l.href} onClick={() => setOpen(false)} style={{
               fontFamily: 'var(--font-bebas, "Bebas Neue"), sans-serif',
-              fontSize: 'clamp(2rem,6vw,3rem)',
-              letterSpacing: '.08em',
-              color: 'var(--noir)',
-              padding: '.3rem 0',
+              fontSize: 'clamp(2.5rem,8vw,4rem)',
+              letterSpacing: '.06em',
+              color: 'var(--creme)',
+              padding: '.2rem 0',
               transition: 'color .2s ease',
+              animation: `fadeUp .4s ease both`,
+              animationDelay: `${i * .06}s`,
             }}
               onMouseEnter={e => (e.currentTarget.style.color = 'var(--rouge)')}
-              onMouseLeave={e => (e.currentTarget.style.color = 'var(--noir)')}
+              onMouseLeave={e => (e.currentTarget.style.color = 'var(--creme)')}
             >
               {l.label}
             </Link>
           ))}
-          <Btn href="/reserver" variant="primary" size="md" style={{ marginTop: '1.5rem', fontSize: '1.2rem' }} onClick={() => setOpen(false)}>
-            RÉSERVER
+          <Btn href="/reserver" variant="primary" size="lg" style={{ marginTop: '1rem', animation: 'fadeUp .4s ease both', animationDelay: '.24s' }} onClick={() => setOpen(false)}>
+            RÉSERVER →
           </Btn>
-          <p style={{ fontFamily: 'var(--font-bebas, "Bebas Neue"), sans-serif', fontSize: '.7rem', letterSpacing: '.3em', color: 'var(--gris-clair)', marginTop: '2rem' }}>
+          <p style={{ fontFamily: 'var(--font-bebas, "Bebas Neue"), sans-serif', fontSize: '.65rem', letterSpacing: '.35em', color: 'rgba(255,255,255,.2)', marginTop: '2.5rem' }}>
             ACCESSIBILITÉ · CRÉATIVITÉ · SIMPLICITÉ
           </p>
         </div>
