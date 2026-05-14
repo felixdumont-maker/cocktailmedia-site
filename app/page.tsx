@@ -1,6 +1,6 @@
 'use client'
 import Link from 'next/link'
-import { CATEGORIES, TEAM, COUPE_SRC } from '@/lib/data'
+import { CATEGORIES, FAQS, TEAM, COUPE_SRC } from '@/lib/data'
 import Btn from '@/components/ui/Btn'
 import SectionHeader from '@/components/ui/SectionHeader'
 
@@ -244,6 +244,34 @@ export default function Home() {
                 </div>
               ))}
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── FAQ ──────────────────────────────────────────────────────────── */}
+      <section style={{ background: 'var(--fond)', padding: '7rem 2rem' }}>
+        <div className="container faq-home-grid">
+          <div style={{ position: 'sticky', top: '7rem' }}>
+            <p className="eyebrow">ON RÉPOND</p>
+            <h2 style={{ fontFamily: 'var(--font-bebas, "Bebas Neue"), sans-serif', fontSize: 'clamp(2.5rem,5vw,3.5rem)', color: 'var(--noir)', letterSpacing: '.03em', lineHeight: 1, marginBottom: '1.5rem' }}>
+              TES QUESTIONS,<br /><span style={{ color: 'var(--rouge)' }}>NOS RÉPONSES.</span>
+            </h2>
+            <p style={{ fontSize: '.88rem', color: 'var(--gris)', lineHeight: 1.7, marginBottom: '2rem' }}>
+              Tout ce que tu veux savoir avant de commander.
+            </p>
+            <Btn href="/faq" variant="secondary" size="sm">VOIR TOUTES LES FAQ →</Btn>
+          </div>
+
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '.8rem' }}>
+            {FAQS.slice(0, 5).map(faq => (
+              <details key={faq.q} className="faq-item">
+                <summary>
+                  <span>{faq.q}</span>
+                  <span className="faq-toggle">+</span>
+                </summary>
+                <p className="faq-answer">{faq.a}</p>
+              </details>
+            ))}
           </div>
         </div>
       </section>

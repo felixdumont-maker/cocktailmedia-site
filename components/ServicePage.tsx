@@ -11,9 +11,9 @@ export default function ServicePage({ catSlug, serviceSlug }: { catSlug: string;
     <>
       {/* ── HERO ─────────────────────────────────────────────────────────── */}
       <section style={{
-        background: 'var(--noir)', minHeight: '50vh',
+        background: 'var(--noir)', minHeight: '60vh',
         display: 'flex', flexDirection: 'column', justifyContent: 'flex-end',
-        padding: '10rem 2rem 4rem', position: 'relative', overflow: 'hidden',
+        padding: 'clamp(8rem,15vh,12rem) 2rem 5rem', position: 'relative', overflow: 'hidden',
       }}>
         <span style={{
           position: 'absolute', right: '-2%', top: '8%',
@@ -97,16 +97,19 @@ export default function ServicePage({ catSlug, serviceSlug }: { catSlug: string;
 
       {/* ── FAQ CATÉGORIE ────────────────────────────────────────────────── */}
       {cat.faqs.length > 0 && (
-        <section style={{ background: 'var(--creme)', padding: '4rem 2rem' }}>
+        <section style={{ background: 'var(--creme)', padding: '5rem 2rem' }}>
           <div className="container-sm">
             <p style={{ fontFamily: 'var(--font-bebas, "Bebas Neue"), sans-serif', fontSize: '.75rem', letterSpacing: '.4em', color: cat.color, marginBottom: '.6rem' }}>QUESTIONS FRÉQUENTES</p>
-            <h2 style={{ fontFamily: 'var(--font-bebas, "Bebas Neue"), sans-serif', fontSize: 'clamp(1.5rem,3vw,2rem)', color: 'var(--noir)', letterSpacing: '.03em', marginBottom: '2rem' }}>ON RÉPOND</h2>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+            <h2 style={{ fontFamily: 'var(--font-bebas, "Bebas Neue"), sans-serif', fontSize: 'clamp(1.8rem,3vw,2.5rem)', color: 'var(--noir)', letterSpacing: '.03em', marginBottom: '2.5rem' }}>ON RÉPOND</h2>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '.8rem' }}>
               {cat.faqs.map(faq => (
-                <div key={faq.q} className="faq-item" style={{ cursor: 'default' }}>
-                  <p style={{ fontWeight: 700, color: 'var(--noir)', fontSize: '.9rem', marginBottom: '.6rem' }}>{faq.q}</p>
-                  <p style={{ fontSize: '.85rem', color: 'var(--gris)', lineHeight: 1.7 }}>{faq.a}</p>
-                </div>
+                <details key={faq.q} className="faq-item">
+                  <summary>
+                    <span>{faq.q}</span>
+                    <span className="faq-toggle" style={{ color: cat.color }}>+</span>
+                  </summary>
+                  <p className="faq-answer">{faq.a}</p>
+                </details>
               ))}
             </div>
           </div>

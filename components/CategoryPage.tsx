@@ -11,9 +11,9 @@ export default function CategoryPage({ slug }: { slug: string }) {
     <>
       {/* ── HERO ─────────────────────────────────────────────────────────── */}
       <section style={{
-        background: 'var(--noir)', minHeight: '55vh',
+        background: 'var(--noir)', minHeight: '65vh',
         display: 'flex', flexDirection: 'column', justifyContent: 'flex-end',
-        padding: '10rem 2rem 4rem', position: 'relative', overflow: 'hidden',
+        padding: 'clamp(8rem,15vh,12rem) 2rem 5rem', position: 'relative', overflow: 'hidden',
       }}>
         <span style={{
           position: 'absolute', left: '-2%', top: '5%',
@@ -107,12 +107,15 @@ export default function CategoryPage({ slug }: { slug: string }) {
               size="md"
               eyebrowColor={cat.color}
             />
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '.8rem' }}>
               {cat.faqs.map(faq => (
-                <div key={faq.q} className="faq-item" style={{ cursor: 'default' }}>
-                  <p style={{ fontWeight: 700, color: 'var(--noir)', fontSize: '.9rem', marginBottom: '.6rem' }}>{faq.q}</p>
-                  <p style={{ fontSize: '.85rem', color: 'var(--gris)', lineHeight: 1.7 }}>{faq.a}</p>
-                </div>
+                <details key={faq.q} className="faq-item">
+                  <summary>
+                    <span>{faq.q}</span>
+                    <span className="faq-toggle" style={{ color: cat.color }}>+</span>
+                  </summary>
+                  <p className="faq-answer">{faq.a}</p>
+                </details>
               ))}
             </div>
           </div>
