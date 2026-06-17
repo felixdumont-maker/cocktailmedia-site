@@ -3,6 +3,7 @@ import { Bebas_Neue, Montserrat } from 'next/font/google'
 import './globals.css'
 import Nav from '@/components/Nav'
 import Footer from '@/components/Footer'
+import { Providers } from './providers'
 
 const bebasNeue = Bebas_Neue({
   weight: '400',
@@ -35,9 +36,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="fr" className={`${bebasNeue.variable} ${montserrat.variable}`}>
       <body style={{ fontFamily: 'var(--font-montserrat, Montserrat), system-ui, sans-serif' }}>
-        <Nav />
-        <main>{children}</main>
-        <Footer />
+        <Providers>
+          <Nav />
+          <main>{children}</main>
+          <Footer />
+        </Providers>
       </body>
     </html>
   )

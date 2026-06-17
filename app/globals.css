@@ -463,3 +463,226 @@ button { cursor: pointer; font-family: inherit; }
   .carte-row { grid-template-columns: 2.5rem 3rem 1fr auto; gap: 1rem; padding: 1.5rem .5rem; }
   .carte-desc-col { display: none; }
 }
+
+/* ══════════════════════════════════════════════════════════════════════
+   HERO PORTE — scroll-pinned cinématique
+══════════════════════════════════════════════════════════════════════ */
+
+.hp-light {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 2px;
+  background: var(--rouge);
+  filter: blur(0px);
+  opacity: 0.8;
+  pointer-events: none;
+}
+
+.hp-logo {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.hp-logo img {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+}
+
+.hp-spine {
+  position: absolute;
+  right: 2.5rem;
+  top: 50%;
+  transform: translateY(-50%) rotate(90deg);
+  transform-origin: center center;
+  font-family: var(--font-bebas, 'Bebas Neue'), sans-serif;
+  font-size: 0.68rem;
+  letter-spacing: 0.5em;
+  color: var(--rouge);
+  opacity: 0.22;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.hp-tagline-block {
+  position: absolute;
+  bottom: 12%;
+  left: 0; right: 0;
+  text-align: center;
+  padding: 0 2rem;
+}
+
+.hp-tagline-main {
+  font-family: var(--font-bebas, 'Bebas Neue'), sans-serif;
+  font-size: clamp(1.5rem, 3.8vw, 2.8rem);
+  letter-spacing: 0.1em;
+  color: var(--rouge);
+  margin-bottom: 0.75rem;
+}
+
+.hp-tagline-sub {
+  font-size: 0.88rem;
+  color: var(--gris);
+  margin-bottom: 2rem;
+}
+
+.hp-ctas {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.hp-scroll-hint {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.hp-scroll-hint span {
+  font-family: var(--font-bebas, 'Bebas Neue'), sans-serif;
+  font-size: 0.58rem;
+  letter-spacing: 0.4em;
+  color: var(--gris);
+}
+
+.hp-scroll-line {
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(to bottom, var(--rouge), transparent);
+  animation: scrollPulse 1.6s ease-in-out infinite;
+}
+
+@keyframes scrollPulse {
+  0%, 100% { opacity: 0.35; transform: scaleY(1); }
+  50%       { opacity: 1;    transform: scaleY(1.2); }
+}
+
+/* ══════════════════════════════════════════════════════════════════════
+   CATEGORIES SECTION — layouts magazine
+══════════════════════════════════════════════════════════════════════ */
+
+.cat-num {
+  font-family: var(--font-bebas, 'Bebas Neue'), sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.38em;
+  color: var(--rouge);
+  margin-bottom: 1rem;
+}
+
+.cat-name-display {
+  font-family: var(--font-bebas, 'Bebas Neue'), sans-serif;
+  font-size: clamp(3rem, 7vw, 6rem);
+  line-height: 0.95;
+  letter-spacing: 0.02em;
+  color: var(--creme);
+  margin-bottom: 0.5rem;
+}
+
+.cat-type-tag {
+  font-family: var(--font-bebas, 'Bebas Neue'), sans-serif;
+  font-size: 0.68rem;
+  letter-spacing: 0.32em;
+  color: var(--rouge);
+  margin-bottom: 2rem;
+}
+
+.cat-desc-text {
+  font-size: 0.9rem;
+  color: var(--gris);
+  line-height: 1.8;
+  max-width: 440px;
+  margin-bottom: 1.5rem;
+}
+
+.cat-price {
+  font-family: var(--font-bebas, 'Bebas Neue'), sans-serif;
+  font-size: 1.05rem;
+  letter-spacing: 0.08em;
+  color: var(--creme);
+  margin-bottom: 2rem;
+}
+
+.cat-bg-num {
+  position: absolute;
+  font-family: var(--font-bebas, 'Bebas Neue'), sans-serif;
+  font-size: clamp(12rem, 35vw, 28rem);
+  color: var(--rouge);
+  opacity: 0.06;
+  line-height: 1;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  user-select: none;
+  letter-spacing: -0.02em;
+}
+
+/* ══════════════════════════════════════════════════════════════════════
+   PROCESS — numéros géants en fond
+══════════════════════════════════════════════════════════════════════ */
+
+.process-step-new {
+  position: relative;
+  padding: 4rem 0;
+  border-bottom: 1px solid var(--ligne);
+  overflow: hidden;
+}
+
+.process-step-new:first-of-type { border-top: 1px solid var(--ligne); }
+
+.process-bg-num {
+  position: absolute;
+  font-family: var(--font-bebas, 'Bebas Neue'), sans-serif;
+  font-size: clamp(8rem, 20vw, 16rem);
+  color: var(--rouge);
+  opacity: 0.07;
+  line-height: 1;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  user-select: none;
+}
+
+.process-step-content {
+  position: relative;
+  max-width: 600px;
+}
+
+.process-step-title-new {
+  font-family: var(--font-bebas, 'Bebas Neue'), sans-serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  letter-spacing: 0.04em;
+  color: var(--creme);
+  margin-bottom: 0.75rem;
+}
+
+.process-step-desc-new {
+  font-size: 0.9rem;
+  color: var(--gris);
+  line-height: 1.8;
+}
+
+/* ══════════════════════════════════════════════════════════════════════
+   RESPONSIVE — nouveaux composants
+══════════════════════════════════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+  .cat-split-left,
+  .cat-split-right { grid-template-columns: 1fr !important; }
+
+  .cat-bg-num  { font-size: 8rem; opacity: 0.04; }
+  .process-bg-num { font-size: 6rem; right: 0; opacity: 0.05; }
+
+  .hp-logo img { width: 44px; height: 44px; }
+  .hp-spine    { display: none; }
+  .hp-tagline-block { bottom: 8%; }
+}
