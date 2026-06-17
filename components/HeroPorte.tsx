@@ -24,6 +24,8 @@ export default function HeroPorte() {
   const ctasRef       = useRef<HTMLDivElement>(null)
   const scrollHintRef = useRef<HTMLDivElement>(null)
 
+  const introRef     = useRef<HTMLDivElement>(null)
+
   const l0 = useRef<HTMLDivElement>(null)
   const l1 = useRef<HTMLDivElement>(null)
   const l2 = useRef<HTMLDivElement>(null)
@@ -45,6 +47,8 @@ export default function HeroPorte() {
       },
     })
 
+    // Intro block sort vers le haut
+    tl.to(introRef.current,    { opacity: 0, y: -30, duration: 1.2 }, 0)
     tl.to(scrollHintRef.current, { opacity: 0, duration: 0.8 }, 0)
 
     tl.to(lightRef.current, {
@@ -107,6 +111,13 @@ export default function HeroPorte() {
           )
         })}
 
+        {/* Intro — état initial, disparaît au scroll */}
+        <div ref={introRef} className="hp-intro">
+          <p className="hp-intro-eyebrow">PRODUCTION CRÉATIVE À LA CARTE</p>
+          <h1 className="hp-intro-title">COCKTAIL<br />MÉDIA</h1>
+          <p className="hp-intro-sub">Mauricie · Photo · Vidéo · Graphisme · Web</p>
+        </div>
+
         <div className="hp-spine" aria-hidden="true">COCKTAIL MÉDIA</div>
 
         <div
@@ -129,8 +140,7 @@ export default function HeroPorte() {
         </div>
 
         <div ref={scrollHintRef} className="hp-scroll-hint">
-          <span>DÉFILER</span>
-          <div className="hp-scroll-line" />
+          <span>↓</span>
         </div>
       </div>
     </div>
