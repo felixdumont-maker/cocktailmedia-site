@@ -34,9 +34,9 @@ export default function Nav() {
         top: 0, left: 0, right: 0,
         zIndex: 100,
         transition: 'background 350ms ease, backdrop-filter 350ms ease, box-shadow 350ms ease',
-        background: scrolled ? 'rgba(250,249,246,.92)' : 'transparent',
-        backdropFilter: scrolled ? 'blur(12px)' : 'none',
-        boxShadow: scrolled ? '0 1px 0 rgba(43,43,43,.08)' : 'none',
+        background: scrolled ? 'rgba(17,17,16,.88)' : 'transparent',
+        backdropFilter: scrolled ? 'blur(14px)' : 'none',
+        boxShadow: scrolled ? '0 1px 0 rgba(255,255,255,.06)' : 'none',
       }}>
         <Link href="/">
           {/* eslint-disable-next-line @next/next/no-img-element */}

@@ -5,7 +5,7 @@ import Btn from '@/components/ui/Btn'
 
 export default function Footer() {
   return (
-    <footer style={{ background: 'var(--noir)', color: 'var(--fond)', padding: '4rem 3rem 2rem' }}>
+    <footer style={{ background: '#1b1b18', color: 'var(--creme)', padding: '4rem 3rem 2rem' }}>
       <div className="container">
 
         <div style={{ textAlign: 'center', paddingBottom: '3rem', marginBottom: '3rem', borderBottom: '1px solid rgba(255,255,255,.08)' }}>
