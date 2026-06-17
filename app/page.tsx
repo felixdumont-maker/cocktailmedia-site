@@ -1,4 +1,4 @@
-import HeroPorte from '@/components/HeroPorte'
+import HeroCoupe from '@/components/HeroCoupe'
 import CategoriesSection from '@/components/CategoriesSection'
 import Btn from '@/components/ui/Btn'
 import { FAQS, TEAM } from '@/lib/data'
@@ -24,7 +24,7 @@ const STEPS = [
 export default function Home() {
   return (
     <>
-      <HeroPorte />
+      <HeroCoupe />
       <CategoriesSection />
 
       {/* ── COMMENT ÇA MARCHE ──────────────────────────────────────── */}
