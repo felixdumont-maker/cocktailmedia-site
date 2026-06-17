@@ -723,49 +723,28 @@ button { cursor: pointer; font-family: inherit; }
 }
 
 /* ══════════════════════════════════════════════════════════════════════
-   HERO COUPE
+   HERO COUPE — fond crème, texte sombre
 ══════════════════════════════════════════════════════════════════════ */
 
-/* Aurora animée en fond */
-.hero-aurora {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
+/* Section hero — crème chaude */
+.hero-coupe-section {
+  min-height: 100dvh;
+  background: #f5f1ea;
+  position: relative;
   overflow: hidden;
-  z-index: 0;
 }
-.hero-aurora::before,
-.hero-aurora::after {
+
+/* Lueur subtile rouge-ambré en haut à droite (derrière la coupe) */
+.hero-coupe-section::before {
   content: '';
   position: absolute;
-  border-radius: 50%;
-  pointer-events: none;
-}
-.hero-aurora::before {
-  top: -25%;
-  right: -8%;
-  width: 72%;
-  height: 85%;
-  background: radial-gradient(ellipse at center, rgba(232,59,20,.16) 0%, rgba(232,59,20,.05) 45%, transparent 75%);
-  filter: blur(70px);
-  animation: auroraDrift1 14s ease-in-out infinite alternate;
-}
-.hero-aurora::after {
-  bottom: -20%;
-  left: -12%;
+  top: -10%;
+  right: -5%;
   width: 55%;
-  height: 65%;
-  background: radial-gradient(ellipse at center, rgba(232,115,26,.09) 0%, transparent 70%);
-  filter: blur(80px);
-  animation: auroraDrift2 19s ease-in-out infinite alternate;
-}
-@keyframes auroraDrift1 {
-  from { transform: translate(0, 0) scale(1); }
-  to   { transform: translate(-6%, 10%) scale(1.14); }
-}
-@keyframes auroraDrift2 {
-  from { transform: translate(0, 0) scale(1); }
-  to   { transform: translate(9%, -6%) scale(1.2); }
+  height: 70%;
+  background: radial-gradient(ellipse at center, rgba(232,59,20,.07) 0%, transparent 70%);
+  filter: blur(60px);
+  pointer-events: none;
 }
 
 /* Grille hero */
@@ -775,7 +754,7 @@ button { cursor: pointer; font-family: inherit; }
   gap: 4rem;
   align-items: center;
   min-height: 100dvh;
-  padding: 6rem 2rem;
+  padding: 7rem 2rem 4rem;
   position: relative;
   z-index: 1;
 }
@@ -790,12 +769,12 @@ button { cursor: pointer; font-family: inherit; }
   text-transform: uppercase;
 }
 
-/* Titre principal */
+/* Titre principal — sombre sur crème */
 .hero-coupe-title {
   font-size: clamp(4.5rem, 11vw, 10rem);
   line-height: .88;
   letter-spacing: .02em;
-  color: var(--creme);
+  color: #111110;
   margin-bottom: 2rem;
 }
 
@@ -804,7 +783,7 @@ button { cursor: pointer; font-family: inherit; }
   font-family: var(--font-bebas), sans-serif;
   font-size: clamp(1rem, 2vw, 1.4rem);
   letter-spacing: .14em;
-  color: var(--creme);
+  color: #111110;
   margin-bottom: .75rem;
 }
 
@@ -812,7 +791,7 @@ button { cursor: pointer; font-family: inherit; }
 .hero-coupe-sub {
   font-family: var(--font-montserrat), sans-serif;
   font-size: .88rem;
-  color: var(--gris);
+  color: #5a544c;
   line-height: 1.75;
   max-width: 38ch;
   margin-bottom: 2.5rem;
@@ -830,6 +809,12 @@ button { cursor: pointer; font-family: inherit; }
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+/* Scroll hint adapté au fond clair */
+.hero-coupe-scroll span {
+  color: #5a544c !important;
+  border-color: rgba(0,0,0,.2) !important;
 }
 
 /* Wrapper coupe */

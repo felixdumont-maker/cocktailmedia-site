@@ -34,8 +34,8 @@ export default function Nav() {
         top: 0, left: 0, right: 0,
         zIndex: 100,
         transition: 'background 350ms ease, backdrop-filter 350ms ease, box-shadow 350ms ease',
-        background: scrolled ? 'rgba(17,17,16,.88)' : 'transparent',
-        backdropFilter: scrolled ? 'blur(14px)' : 'none',
+        background: scrolled ? 'rgba(17,17,16,.92)' : 'rgba(17,17,16,.55)',
+        backdropFilter: 'blur(14px)',
         boxShadow: scrolled ? '0 1px 0 rgba(255,255,255,.06)' : 'none',
       }}>
         <Link href="/">
